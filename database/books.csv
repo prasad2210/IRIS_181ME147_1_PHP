@@ -1,0 +1,100 @@
+1,Clean Code,dataset/Computing/0000001.jpg,Robert C. Martina ,12,9780132350884
+2,The Legend of Zelda,dataset/Computing/0000002.jpg,Shigeru Miyamoto ,22,9781616550417
+3,"Don't Make Me Think, Revisited",dataset/Computing/0000003.jpg,Steve Krug,41,9780321965516
+4,"Godel, Escher, Bach",dataset/Computing/0000004.jpg,Douglas R. Hofstadter,23,9780465026562
+5,Superintelligence,dataset/Computing/0000005.jpg,Nick Bostrom,21,9780198739838
+6,"Web Design with HTML, CSS, JavaScript and jQuery Set",dataset/Computing/0000006.jpg,Jon Duckett,11,9781118907443
+7,Cracking the Coding Interview,dataset/Computing/0000007.jpg,Gayle Laakmann McDowell,5,9780984782857
+8,The Internet is a Playground,dataset/Computing/0000008.jpg,David Thorne,7,9781585428816
+9,DanTDM: Trayaurus and the Enchanted Crystal,dataset/Computing/0000009.jpg,DanTDM,27,9781409168393
+10,Life 3.0,dataset/Computing/0000010.jpg,Max Tegmark,50,9780141981802
+11,Alan Turing: The Enigma,dataset/Computing/0000011.jpg,Andrew Hodges,33,9781784700089
+12,The Pragmatic Programmer,dataset/Computing/0000012.jpg,Andrew Hunt,23,9780201616224
+13,Weapons of Math Destruction,dataset/Computing/0000013.jpg,Cathy O'neil,56,9780141985411
+14,Digital Minimalism,dataset/Computing/0000014.jpg,Cal Newport,12,9780241341131
+15,HTML and CSS,dataset/Computing/0000015.jpg,Jon Duckett,22,9781118008188
+16,Clean Architecture,dataset/Computing/0000016.jpg,Robert C. Martin,41,9780134494166
+17,Design Patterns,dataset/Computing/0000017.jpg,Erich Gamma,23,9780201633610
+18,The Clean Coder,dataset/Computing/0000018.jpg,Robert C. Martin,21,9780137081073
+19,World Of Warcraft: Chronicle Volume 1,dataset/Computing/0000019.jpg,Blizzard,11,9781616558451
+20,Hands-On Machine Learning with Scikit-Learn and TensorFlow,dataset/Computing/0000020.jpg,Aurelien Geron,5,9781491962299
+21,Code Complete,dataset/Computing/0000021.jpg,Steve McConnell,7,9780735619678
+22,Head First Design Patterns,dataset/Computing/0000022.jpg,Eric Freeman,27,9780596007126
+23,Never Eat Alone,dataset/Computing/0000023.jpg,Keith Ferrazzi,50,9780241004951
+24,The Shallows,dataset/Computing/0000024.jpg,Nicholas Carr,33,9780393339758
+25,Discovering Statistics Using IBM SPSS Statistics,dataset/Computing/0000025.jpg,Andy Field,23,9781526419521
+26,Designing Data-Intensive Applications,dataset/Computing/0000026.jpg,Martin Kleppmann,56,9781449373320
+27,SPSS Survival Manual,dataset/Computing/0000027.jpg,Julie Pallant,11,9781760291952
+28,Code,dataset/Computing/0000028.jpg,Charles Petzold,23,9780735611313
+29,JavaScript: The Good Parts,dataset/Computing/0000029.jpg,Douglas Crockford,12,9780596517748
+30,Automate The Boring Stuff With Python,dataset/Computing/0000030.jpg,Al Sweigart,31,9781593275990
+31,R for Data Science,dataset/Computing/0000031.jpg,Garrett Grolemund,21,9781491910399
+32,World Of Warcraft Chronicle Volume 2,dataset/Computing/0000032.jpg,Blizzard Entertainment,34,9781616558468
+33,The Mythical Man-Month,dataset/Computing/0000033.jpg,Frederick P. Brooks Jr.,26,9780201835953
+34,Algorithms to Live By,dataset/Computing/0000034.jpg,Brian Christian,27,9780007547999
+35,This is Service Design Doing,dataset/Computing/0000035.jpg,Adam Lawrence,18,9781491927182
+36,All Marketers are Liars,dataset/Computing/0000036.jpg,Seth Godin,29,9781591845331
+37,"Blood, Sweat, and Pixels",dataset/Computing/0000037.jpg,Jason Schreier,36,9780062651235
+38,The Master Algorithm,dataset/Computing/0000038.jpg,Pedro Domingos,76,9780141979243
+39,Head First Java,dataset/Computing/0000039.jpg,Kathy Sierra,26,9780596009205
+40,Deep Learning,dataset/Computing/0000040.jpg,Yoshua Bengio,44,9780262035613
+41,C Programming Language,dataset/Computing/0000041.jpg,Brian W. Kernighan,43,9780131103627
+42,100 Things Every Designer Needs to Know About People,dataset/Computing/0000042.jpg,Susan Weinschenk,62,9780321767530
+43,Refactoring,dataset/Computing/0000043.jpg,Martin Fowler,25,9780134757599
+44,Effective Java,dataset/Computing/0000044.jpg,Joshua Bloch,2,9780134685991
+45,Python Pocket Reference,dataset/Computing/0000045.jpg,Mark Lutz,35,9781449357016
+46,The Brand Gap,dataset/Computing/0000046.jpg,Marty Neumeier,55,9780321348104
+47,Permanent Record,dataset/Computing/0000047.jpg,Edward Snowden,21,9781529035667
+48,An Introduction to Statistical Learning,dataset/Computing/0000048.jpg,Gareth James,9,9781461471370
+49,"Hacking: The Art Of Exploitation, 2nd Edition",dataset/Computing/0000049.jpg,Jon Erickson,3,9781593271442
+50,World Of Warcraft Chronicle Volume 3,dataset/Computing/0000050.jpg,Blizzard Entertainment,26,9781616558475
+51,Python Crash Course (2nd Edition),dataset/Computing/0000051.jpg,Eric Matthes,4,9781593279288
+52,Mastering Bitcoin 2e,dataset/Computing/0000052.jpg,Andreas Antonopoulos,12,9781491954386
+53,Data Science for Business,dataset/Computing/0000053.jpg,Foster Provost,45,9781449361327
+54,Crushing It!,dataset/Computing/0000054.jpg,Gary Vaynerchuk,21,9780062674678
+55,"Capture Your Style:Transform Your Instagram Photos, Showcase Your",dataset/Computing/0000055.jpg,Aimee Song,2,9781419722158
+56,Domain-Driven Design,dataset/Computing/0000056.jpg,Eric Evans,12,9780321125217
+57,Building Microservices,dataset/Computing/0000057.jpg,Sam Newman,5,9781491950357
+58,Accelerate,dataset/Computing/0000058.jpg,Nicole Forsgren,34,9781942788331
+59,Running Lean,dataset/Computing/0000059.jpg,Ash Maurya,21,9781449305178
+60,"Legend Of Zelda, The: Art & Artifacts",dataset/Computing/0000060.jpg,Nintendo USA,37,9781506703350
+61,The Art of Horizon,dataset/Computing/0000061.jpg,Paul Davies,25,9781785653636
+62,slide:ology,dataset/Computing/0000062.jpg,Nancy Duarte,2,9780596522346
+63,The Singularity is Near,dataset/Computing/0000063.jpg,Ray Kurzweil,28,9780143037880
+64,User Story Mapping,dataset/Computing/0000064.jpg,Jeff Patton,25,9781491904909
+65,"Trust Me, I'm Lying",dataset/Computing/0000065.jpg,Ryan Holiday,38,9781591846284
+66,The Book of Why,dataset/Computing/0000066.jpg,Judea Pearl,29,9780141982410
+67,"Sekiro Shadows Die Twice, Official Game Guide",dataset/Computing/0000067.jpg,Future Press,1,9783869930947
+68,Sidemen: The Book,dataset/Computing/0000068.jpg,The Sidemen,18,9781473648166
+69,The World Of The Witcher,dataset/Computing/0000069.jpg,CD Projekt Red,14,9781616554828
+70,Kill All Normies,dataset/Computing/0000070.jpg,Angela Nagle,24,9781785355431
+71,Effective Modern C++,dataset/Computing/0000071.jpg,Scott Meyers,21,9781491903995
+72,The Animator's Survival Kit,dataset/Computing/0000072.jpg,Richard E. Williams,9,9780571238347
+73,Ghost In The Wires,dataset/Computing/0000073.jpg,Kevin D. Mitnick,3,9780316212182
+74,"Python for Data Analysis, 2e",dataset/Computing/0000074.jpg,Wes McKinney,26,9781491957660
+75,"Lean UX, 2e",dataset/Computing/0000075.jpg,Jeff Gothelf,4,9781491953600
+76,The Mood Cure,dataset/Computing/0000076.jpg,Julia Ross,12,9780142003640
+77,Logo Design Love,dataset/Computing/0000077.jpg,David Airey,45,9780321985200
+78,The Art Of The Mass Effect Universe,dataset/Computing/0000078.jpg,Casey Hudson,21,9781595827685
+79,Masters Of Doom,dataset/Computing/0000079.jpg,David Kushner,2,9780749924898
+80,Hold Me Tight,dataset/Computing/0000080.jpg,Sue Johnson,12,9780316113007
+81,Fluent Python,dataset/Computing/0000081.jpg,Luciano Ramalho,5,9781491946008
+82,Everybody Lies,dataset/Computing/0000082.jpg,Seth Stephens-davidowitz,34,9780062390851
+83,Storm King's Thunder,dataset/Computing/0000083.jpg,Wizards RPG Team,21,9780786966004
+84,The Manager`s Path,dataset/Computing/0000084.jpg,Camille Fournier,37,9781491973899
+85,The Art of Deception,dataset/Computing/0000085.jpg,Kevin D. Mitnick,25,9780764542800
+86,Tales from the Yawning Portal,dataset/Computing/0000086.jpg,Wizards RPG Team,2,9780786966097
+87,"Get Coding! Learn HTML, CSS, and JavaScript and Build a Website, App, and Game",dataset/Computing/0000087.jpg,Young Rewired State,28,9781406366846
+88,The Elements of Statistical Learning,dataset/Computing/0000088.jpg,Trevor Hastie,25,9780387848570
+89,AI Superpowers,dataset/Computing/0000089.jpg,Kai-Fu Lee,38,9781328546395
+90,Alibaba,dataset/Computing/0000090.jpg,Duncan Clark,29,9780062413413
+91,"The Digital Photography Book, Part 3",dataset/Computing/0000091.jpg,Scott Kelby,1,9780321617651
+92,Discovering Statistics Using R,dataset/Computing/0000092.jpg,Andy Field,18,9781446200469
+93,Learning Python,dataset/Computing/0000093.jpg,Mark Lutz,14,9781449355739
+94,The Rise of the Robots,dataset/Computing/0000094.jpg,Martin Ford,24,9781780748481
+95,C++ Primer,dataset/Computing/0000095.jpg,Stanley B. Lippman,18,9780321714114
+96,Superintelligence,dataset/Computing/0000096.jpg,Nick Bostrom,16,9780199678112
+97,Learn Python 3 the Hard Way,dataset/Computing/0000097.jpg,Zed A. Shaw,25,9780134692883
+98,Coaching Agile Teams,dataset/Computing/0000098.jpg,Lyssa Adkins,20,9780321637703
+99,Effective Java,dataset/Computing/0000099.jpg,Joshua Bloch,10,9780321356680
+100,The Go Programming Language,dataset/Computing/0000100.jpg,Alan Donovan,21,9780134190440

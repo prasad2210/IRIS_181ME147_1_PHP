@@ -67,21 +67,17 @@
   </div> -->
 
   <div class="row ">
-      <figure><img src="./images/top_nav.PNG" width="100%" height="40px"></figure>
+      <figure><img src="../images/top_nav.PNG" width="100%" height="40px"></figure>
   </div>
   <div class="row">
     <div class="col-xl-10">
-      <figure><img src="./images/second_nav.PNG" width="100%" height="80px"></figure>
+      <figure><img src="../images/second_nav.PNG" width="100%" height="80px"></figure>
     </div>
     <div class="col-xl-2">
       <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" id="log-in" data-toggle="dropdown">
-          Log-In 
+        <button type="button" class="btn btn-primary" id="log-in">
+          Admin
         </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Admin</a>
-          <a class="dropdown-item" href="#">Student</a>
-        </div>
       </div>
     </div>
 </div>
@@ -99,7 +95,7 @@
         </nav>
       </div>
       <div class="col-md-4 pl-4">
-        <figure><img src="./images/3rd_pic.PNG" width="250px" height="35px" style="position: relative; top: 10px;"></figure>
+        <figure><img src="../images/3rd_pic.PNG" width="250px" height="35px" style="position: relative; top: 10px;"></figure>
       </div>
     </div>
   </div>
@@ -139,25 +135,25 @@
         <div class="row text-center">
           <div class="col-md-3">
             <div class="border py-2">  
-              <figure><img src="images/logo.PNG" width="90%" height="280"> </figure>
+              <figure><img src="../images/logo.PNG" width="90%" height="280"> </figure>
               <button>dscwd</button>
             </div>
           </div>
           <div class="col-md-3">
             <div class="border py-2">  
-              <figure><img src="images/logo.PNG" width="90%" height="280"> </figure>
+              <figure><img src="../images/logo.PNG" width="90%" height="280"> </figure>
               <button>dscwd</button>
             </div>
           </div>
           <div class="col-md-3">
             <div class="border py-2">  
-              <figure><img src="images/logo.PNG" width="90%" height="280"> </figure>
+              <figure><img src="../images/logo.PNG" width="90%" height="280"> </figure>
               <button>dscwd</button>
             </div>
           </div>
           <div class="col-md-3">
             <div class="border py-2">  
-              <figure><img src="images/logo.PNG" width="90%" height="280"> </figure>
+              <figure><img src="../images/logo.PNG" width="90%" height="280"> </figure>
               <button>dscwd</button>
             </div>
           </div>
