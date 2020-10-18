@@ -40,6 +40,14 @@
             return true;
         }
     });
+
+  $('a[data-slide="prev"]').click(function() {
+    this.carousel('prev');
+  });
+
+  $('a[data-slide="next"]').click(function() {
+    this.carousel('next');
+  });
   </script>
 </body>
 

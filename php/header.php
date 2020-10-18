@@ -53,6 +53,10 @@
       top: 20px;
       left: 10px;
     }
+    nav a:hover{
+      background-color: #CCE5FF;
+
+    } 
     
   </style>
 

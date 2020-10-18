@@ -55,17 +55,17 @@
       '<div class="col-md-3">
       <div>
         <div class="card">
-           <div id="'.$row1['id'].'" class="carousel slide" data-ride="carousel" style="height:250px; width:170px; margin: 0 auto;">
+           <div id="carouselExampleControls'.$row1["id"].'" class="carousel slide" data-ride="carousel" style="height:250px; width:170px; margin: 0 auto;">
               <div class="carousel-inner">
               '.
                 $subBody
               .'
               </div>
-              <a class="carousel-control-prev" href="#'.$row1['id'].'" role="button" data-slide="prev">
+              <a class="carousel-control-prev" href="#carouselExampleControls'.$row1["id"].'" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
               </a>
-              <a class="carousel-control-next" href="#'.$row1['id'].'" role="button" data-slide="next">
+              <a class="carousel-control-next" href="#carouselExampleControls'.$row1["id"].'" role="button" data-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
               </a>
@@ -79,14 +79,32 @@
             <li class="list-group-item">Quantities: '.$row1["quantity"].'</li>
           </ul>
           <div class="card-body mb-4" style="margin:0 auto; position:relative; top: 8px; ">
-          <form id="submit-button">
-          <button type="submit" name="submit1" id="'.$row1['id'].'" class="btn btn-outline-primary">Create Request</button>
+          <form id="submit-button" method="POST">
+          <button type="submit" name="submit1" value="'.$row1['id'].'" id="'.$row1['id'].'" class="btn btn-outline-primary">Create Request</button>
           </form>
           </div>
         </div>
       </div>
     </div>';
     } 
+  }
+  $error = '';
+  $tag = 0;
+  if(array_key_exists("submit1", $_POST)){
+    $query = "SELECT * FROM `issue` where userID = '".mysqli_real_escape_string($conn, $_SESSION['id'])."' AND bookID = '".mysqli_real_escape_string($conn, $_POST['submit1'])."'";
+    $result = mysqli_query($conn, $query);
+    if (mysqli_num_rows($result) > 0){
+      $error = '<div class="alert alert-danger text-center col-md-12" role="alert">could not send a request. already sent.<button type="button" class="close" data-dismiss="alert">x</button> </div>';
+    }
+    else{
+      $query = "INSERT INTO `issue` (`userID`, `bookID`) VALUES ('".mysqli_real_escape_string($conn, $_SESSION['id'])."', '".mysqli_real_escape_string($conn, $_POST['submit1'])."')";
+      if(!mysqli_query($conn, $query)){
+        $error = '<div class="alert alert-danger text-center col-md-12" role="alert">Could not send a request. please try again.<button type="button" class="close" data-dismiss="alert">x</button> </div>';
+      }
+      else{
+        $error = '<div class="alert alert-success text-center col-md-12" role="alert">issue request is sent.<button type="button" class="close" data-dismiss="alert">x</button> </div>'; 
+      }
+    }
   }
 ?>
 <body>
@@ -110,7 +128,7 @@
     </Div>
     <div class="col-xl-1 mt-3">
         <a href="../../index.php?logout=1"><button type="button" class="btn btn-primary" id="log-out">
-         Log-out
+         Logout
         </button></a>
     </div>
 </div>
@@ -123,7 +141,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb remalign">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="../..//index.php?logout=1">Library</a></li>
+            <li class="breadcrumb-item"><a href="../../index.php?logout=1">Library</a></li>
             <li class="breadcrumb-item">student</li>
           </ol>
         </nav>
@@ -146,19 +164,27 @@
     <div class="row main-content border border-top-0">
       <div class="col-md-2 border border-top-0 py-2" id="dash" style="text-align: center;">
         
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0);">Dashboard</a>
+        <ul class="nav  nav pills flex-column">
+          <li class="nav-item bg-primary rounded">
+            <a class="nav-link disabled text-light">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Issues</a>
+            <a class="nav-link" href="./myBooks.php">My Books</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Transactions</a>
+            <a class="nav-link" href="./issueRequest.php">Issue Requests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="studentTransaction.php">Transactions</a>
           </li>
         </ul>
       </div>
       <div class="col-md-10 py-2" id="main-area">
+      <div class="alert alert-success text-center col-md-12" role="alert">
+        Logged in successfully!!.
+        <button type="button" class="close" data-dismiss="alert">x</button> 
+        </div>
+        <?php echo $error;?>
         <div class="row text-center">
           <?php echo $mainBody;?>
         </div>
@@ -214,13 +240,13 @@
     //   return false;
     // });
     
-    $(document).ready(function() {
-      $('#submit-button button').on('click', function(e){
-      $("#editModal").val(this.id);
-      $('#modalForm').modal('show');
-      e.preventDefault();
-  });
-});
+//     $(document).ready(function() {
+//       $('#submit-button button').on('click', function(e){
+//       $("#editModal").val(this.id);
+//       
+//       e.preventDefault();
+//   });
+// });
 
   </script>
 </body>

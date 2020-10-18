@@ -19,7 +19,7 @@
     header("Location: ../index.php?logout=1");
   }
 
-  include("../php//header.php");
+
 
   //add books
   $statueLog = '';
@@ -72,6 +72,8 @@
       }
     }
   }
+
+  //display books
   include("../php//connection.php");
   $mainBody = '';
   $query1 = "SELECT * FROM `books`";
@@ -108,17 +110,17 @@
       '<div class="col-md-3">
       <div>
         <div class="card">
-           <div id="'.$row1['id'].'" class="carousel slide" data-ride="carousel" style="height:250px; width:170px; margin: 0 auto;">
+           <div id="carouselExampleControls'.$row1["id"].'" class="carousel slide" data-ride="carousel" style="height:250px; width:170px; margin: 0 auto;">
               <div class="carousel-inner">
               '.
                 $subBody
               .'
               </div>
-              <a class="carousel-control-prev" href="#'.$row1['id'].'" role="button" data-slide="prev">
+              <a class="carousel-control-prev" href="#carouselExampleControls'.$row1["id"].'" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
               </a>
-              <a class="carousel-control-next" href="#'.$row1['id'].'" role="button" data-slide="next">
+              <a class="carousel-control-next" href="#carouselExampleControls'.$row1["id"].'" role="button" data-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
               </a>
@@ -133,7 +135,7 @@
           </ul>
           <div class="card-body mb-4" style="margin:0 auto; position:relative; top:8px ">
           <form id="submit-button">
-          <button type="submit" name="submit1" id="'.$row1['id'].'" class="btn btn-outline-primary">sign in</button>
+          <button type="submit" name="submit1" id="'.$row1['id'].'" class="btn btn-outline-primary">Edit</button>
           </form>
           </div>
         </div>
@@ -150,11 +152,9 @@
   }
 
   
-  
-
-
-
+  include("../php//header.php");
 ?>
+
 <body>
   <!-- <div class="pt-3 border pl-3">
     <nav class="navbar navbar-expand-sm bg-white navbar-primary ">
@@ -175,7 +175,7 @@
         <?php echo $row["collegeID"]; ?>
     </Div>
     <div class="col-xl-1 mt-3">
-        <a href="../../index.php?logout=1"><button type="button" class="btn btn-primary" id="log-out">
+        <a href="../../index.php?logout=1"><button type="button" class="btn btn-primary" id="logout">
          Log-out
         </button></a>
     </div>
@@ -232,7 +232,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb remalign">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href = "../..//index.php?logout=1">Library</a></li>
+            <li class="breadcrumb-item"><a href = "../../index.php?logout=1">Library</a></li>
             <li class="breadcrumb-item">admin</li>
           </ol>
         </nav>
@@ -256,21 +256,21 @@
       <div class="col-md-2 border border-top-0 py-2" id="dash" style="text-align: center;">
         
         <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0);">Dashboard</a>
+          <li class="nav-item bg-primary rounded">
+            <a class="nav-link text-light disabled" >Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link dropmenu" data-toggle="collapse" data-target="#submenu">Issues</a>
             <div id="submenu" class="collapse">
               <ul>
-                <li><a href="">Pending</a></li>
-                <li><a href="">Approved</a></li>
-                <li><a href="">Rejected</a></li>
+                <li><a href="./issuePending.php">Pending</a></li>
+                <li><a href="./issueApproved.php">Approved</a></li>
+                <li><a href="./issueRejected.php">Rejected</a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Transactions</a>
+            <a class="nav-link" href="./adminTransaction.php">Transactions</a>
           </li>
         </ul>
       </div>

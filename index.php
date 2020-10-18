@@ -14,7 +14,9 @@
     session_destroy();
   }
   else if ((array_key_exists("id", $_SESSION) AND $_SESSION['id']) OR (array_key_exists("id1", $_COOKIE) AND $_COOKIE['id1'])){
-    if($row['collegeID'] == "admin"){
+    $query = "SELECT collegeID FROM `users` WHERE id = '".mysqli_real_escape_string($conn, $_SESSION['collegeId'])."'";
+    $row = mysqli_fetch_array(mysqli_query($conn, $query));
+    if($_COOKIE['id1'] == "admin"){
 
       header("Location: ./admin-student//admin.php");
     }
@@ -38,7 +40,7 @@
         $error = '<div class="alert alert-danger text-center col-md-10" role="alert">This College ID is Taken. Please try other.<button type="button" class="close" data-dismiss="alert">x</button> </div>';
       }
       else {
-        $query = "INSERT INTO `users` (`collegeID`, `passward`) VALUES ('".mysqli_real_escape_string($conn, $_POST['collegeId'])."', '".mysqli_real_escape_string($conn, $_POST['pass'])."')";
+        $query = "INSERT INTO `users` (`collegeID`, `passward`, `name`) VALUES ('".mysqli_real_escape_string($conn, $_POST['collegeId'])."', '".mysqli_real_escape_string($conn, $_POST['pass'])."', '".mysqli_real_escape_string($conn, $_POST['yourName'])."')";
         
         if (!mysqli_query($conn, $query)) {
 
@@ -120,20 +122,20 @@
       '<div class="col-md-3">
       <div>
         <div class="card">
-           <div id="'.$row1['id'].'" class="carousel slide" data-ride="carousel" style="height:250px; width:170px; margin: 0 auto;">
+           <div id="carouselExampleControls'.$row1['id'].'" class="carousel slide" data-ride="carousel" style="height:250px; width:170px; margin: 0 auto;">
               <div class="carousel-inner">
               '.
                 $subBody
               .'
               </div>
-              <a class="carousel-control-prev" href="#'.$row1['id'].'" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#carouselExampleControls'.$row1["id"].'" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#'.$row1['id'].'" role="button" data-slide="next">
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls'.$row1["id"].'" role="button" data-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
-              </a>
+                </a>
               </div>
           <div class="card-body">
             <h5 class="card-title">'.$row1["title"].'</h5>
@@ -210,11 +212,11 @@
               <div class="form-group mx-5 my-2 text-center">
                 <label for="collegeId">Enter College ID</label>
                 <input type="text" class="form-control" id="collegeId" name="collegeId" aria-describedby="emailHelp"
-                  placeholder="Ex. 181ME147">
+                  placeholder="Ex. 181ME147" required>
               </div>
               <div class="form-group mx-5 text-center">
                 <label for="InputPassword1">Password</label>
-                <input type="password" class="form-control" name="pass" id="InputPassword1" placeholder="Password">
+                <input type="password" class="form-control" name="pass" id="InputPassword1" placeholder="Password" required>
               </div>
               <div class="text-center my-2">
                 <input type="hidden" name="signUp" value="0">
@@ -241,17 +243,20 @@
             <!--Body-->
             <form method="POST">
               <div class="form-group mx-5 my-2 text-center">
+              <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="yourName" aria-describedby="collegeIdreg"
+                  placeholder="Your Name" required>
                 <label for="collegeId">College ID</label>
                 <input type="text" class="form-control" id="collegeId1" name="collegeId" aria-describedby="collegeIdreg"
-                  placeholder="Ex. 181ME147">
+                  placeholder="Ex. 181ME147" required>
               </div>
               <div class="form-group mx-5 text-center">
                 <label for="inputPassword2">Password</label>
-                <input type="password" class="form-control" name="pass" id="inputPassword2" placeholder="Password">
+                <input type="password" class="form-control" name="pass" id="inputPassword2" placeholder="Password" required>
               </div>
               <div class="form-group mx-5 text-center">
                 <label for="repeatPassword2">Repeat Password</label>
-                <input type="password" class="form-control" id="repeatPassword2" placeholder=" Repeat Password">
+                <input type="password" class="form-control" id="repeatPassword2" placeholder=" Repeat Password" required> 
               </div>
               <div class="text-center my-2">
                 <input type="hidden" name="signUp" value="1">
@@ -300,7 +305,7 @@
 </div>
 
 <div class="row bg-light" style="opacity: .7;">
-  <div class="col-md-12 py-2 px-5 ">
+  <div class="col-md-12 py-2 px-5 border">
     <a href="#" class="nav-link" onclick="hideShowMenu()" id="hideShowMenu">
       <i class="fa fa-align-right mr-2 " id="hideShowMenuIcon"></i>
       <span class="hide-text-md ml-2" id="hideShowMenuText">Close Menu</span>
