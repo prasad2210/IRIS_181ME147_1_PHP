@@ -248,7 +248,7 @@
             <!-- </div> -->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Transactions</a>
+            <a class="nav-link" href="./adminTransaction.php">Transactions</a>
           </li>
         </ul>
         

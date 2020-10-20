@@ -24,40 +24,44 @@
   //add books
   $statueLog = '';
   if(isset($_POST['submit'])){
+    $query = "SELECT * FROM `books` WHERE isbn = '".mysqli_real_escape_string($conn, $_POST['isbn'])."'";
+    $result = mysqli_query($conn, $query);
+    if(!(mysqli_num_rows($result)> 0)){
 
-    include("../php//connection.php");
+      include("../php//connection.php");
 
-    //alert massages
-    $statueLog = '';
-    $dir = './dataset/';
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $quantity = $_POST['quantity'];
-    $isbn = $_POST['isbn'];
-    $insertTobooks = 0;
-    //$allowTypes = array('jpg','png','jpeg','gif');
+      //alert massages
+      $dir = './dataset/';
+      $title = $_POST['title'];
+      $description = $_POST['description'];
+      $quantity = $_POST['quantity'];
+      $isbn = $_POST['isbn'];
+      $insertTobooks = 0;
+      //$allowTypes = array('jpg','png','jpeg','gif');
 
-    $fileNames = array_filter($_FILES['files']['name']);
+      $fileNames = array_filter($_FILES['files']['name']);
 
-    if(!empty($fileNames)){
+      if(!empty($fileNames)){
 
-      foreach($_FILES['files']['name'] as $key=>$val){
+        foreach($_FILES['files']['name'] as $key=>$val){
 
-        $fileName = basename($_FILES['files']['name'][$key]);
-        $target = $dir.$fileName;
-    
-        if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], ".".$target)){
-          $query = "INSERT INTO `paths` (`file_name`, `isbn`) VALUES ('".mysqli_real_escape_string($conn, $target)."','".mysqli_real_escape_string($conn, $_POST['isbn'])."')";
-          $result = mysqli_query($conn, $query);
+          $fileName = basename($_FILES['files']['name'][$key]);
+          $target = $dir.$fileName;
+      
+          if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], ".".$target)){
+            $target = '.'.$target;
+            $query = "INSERT INTO `paths` (`file_name`, `isbn`) VALUES ('".mysqli_real_escape_string($conn, $target)."','".mysqli_real_escape_string($conn, $_POST['isbn'])."')";
+            $result = mysqli_query($conn, $query);
 
-          if(!$result){
-            $insertTobooks = 1;
+            if(!$result){
+              $insertTobooks = 1;
+            }
           }
         }
         if(!$insertTobooks){
 
           $query = "INSERT INTO `books`(`title`, `description`, `quantity`, `isbn`) VALUES('$title',
-             '$description', '$quantity', '$isbn')";
+          '$description', '$quantity', '$isbn')";
           $result = mysqli_query($conn, $query);
 
           if(!$result){
@@ -70,6 +74,9 @@
           }
         }
       }
+    }
+    else{
+      $statueLog = '<div class="alert alert-danger text-center col-md-12" role="alert">This book already exists in a database<button type="button" class="close" data-dismiss="alert">x</button> </div>';
     }
   }
 
@@ -135,7 +142,7 @@
           </ul>
           <div class="card-body mb-4" style="margin:0 auto; position:relative; top:8px ">
           <form id="submit-button">
-          <button type="submit" name="submit1" id="'.$row1['id'].'" class="btn btn-outline-primary">Edit</button>
+          <button type="submit" name="submit1" id="'.$row1['id'].'" class="btn btn-outline-primary">Edit Book</button>
           </form>
           </div>
         </div>
@@ -144,11 +151,79 @@
     } 
   }
 
-
   if(array_key_exists("edit", $_POST)){
-    echo "prasad";
-    echo $_POST['editModal'];
-    
+
+    $query = "SELECT * FROM `books` WHERE id = '".mysqli_real_escape_string($conn, $_POST['editModal'])."'";
+    $result = mysqli_query($conn, $query);
+    $row1 = mysqli_fetch_array($result);
+    echo $row1['isbn'];
+    if(file_exists($_FILES['files']['tmp_name'][0]) || is_uploaded_file($_FILES['files']['tmp_name'][0])){
+      $query = "DELETE FROM `paths` WHERE isbn = '".mysqli_real_escape_string($conn, $row1['isbn'])."'";
+      $result = mysqli_query($conn, $query);
+      if($result) {
+        
+        $dir = './dataset/';
+        $UpdateTobooks = 0;
+        //$allowTypes = array('jpg','png','jpeg','gif');
+
+        $fileNames = array_filter($_FILES['files']['name']);
+
+        if(!empty($fileNames)){
+
+          foreach($_FILES['files']['name'] as $key=>$val){
+
+            $fileName = basename($_FILES['files']['name'][$key]);
+            $target = $dir.$fileName;
+        
+            if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], ".".$target)){
+              $target = '.'.$target;
+              $query = "INSERT INTO `paths` (`file_name`, `isbn`) VALUES ('".mysqli_real_escape_string($conn, $target)."','".mysqli_real_escape_string($conn, $row1['isbn'])."')";
+              $result = mysqli_query($conn, $query);
+            }
+          }
+        }
+      }
+    }
+    if(isset($_POST['title'])){
+      $query = "UPDATE `books` SET title = '".mysqli_real_escape_string($conn, $_POST['title'])."' WHERE isbn = '".mysqli_real_escape_string($conn, $row1['isbn'])."'";
+      if(mysqli_query($conn, $query)){
+        header("Location: admin.php");
+        $statueLog = '<div class="alert alert-success text-center col-md-12" role="alert">Changes are saved<button type="button" class="close" data-dismiss="alert">x</button> </div>';
+      }
+    else{
+        $statueLog = '<div class="alert alert-danger text-center col-md-12" role="alert">Did not save the changes try again.<button type="button" class="close" data-dismiss="alert">x</button> </div>';
+      }
+    }
+    if(isset($_POST['description'])){
+      $query = "UPDATE `books` SET `description` = '".mysqli_real_escape_string($conn, $_POST['description'])."' WHERE isbn = '".mysqli_real_escape_string($conn, $row1['isbn'])."'";
+      if(mysqli_query($conn, $query)){
+        header("Location: admin.php");
+        $statueLog = '<div class="alert alert-success text-center col-md-12" role="alert">Changes are saved<button type="button" class="close" data-dismiss="alert">x</button> </div>';
+      }
+      else{
+        $statueLog = '<div class="alert alert-danger text-center col-md-12" role="alert">Did not save the changes try again.<button type="button" class="close" data-dismiss="alert">x</button> </div>';
+      }
+    }
+    if(isset($_POST['quantity'])){
+      $query = "UPDATE `books` SET quantity = '".mysqli_real_escape_string($conn, $_POST['quantity'])."' WHERE isbn = '".mysqli_real_escape_string($conn, $row1['isbn'])."'";
+      if(mysqli_query($conn, $query)){
+        header("Location: admin.php");
+        $statueLog = '<div class="alert alert-success text-center col-md-12" role="alert">Changes are saved<button type="button" class="close" data-dismiss="alert">x</button> </div>';
+      }
+      else{
+        $statueLog = '<div class="alert alert-danger text-center col-md-12" role="alert">Did not save the changes try again.<button type="button" class="close" data-dismiss="alert">x</button> </div>';
+      }
+    }
+    if(isset($_POST['isbn'])){
+      $query = "UPDATE `books` SET isbn = '".mysqli_real_escape_string($conn, $_POST['isbn'])."' WHERE isbn = '".mysqli_real_escape_string($conn, $row1['isbn'])."'";
+      if(mysqli_query($conn, $query)){
+        header("Location: admin.php");
+        $statueLog = '<div class="alert alert-success text-center col-md-12" role="alert">Changes are saved<button type="button" class="close" data-dismiss="alert">x</button> </div>';
+      }
+      else{
+        $statueLog = '<div class="alert alert-danger text-center col-md-12" role="alert">Did not save the changes try again.<button type="button" class="close" data-dismiss="alert">x</button> </div>';
+      }
+    }
   }
 
   
@@ -198,19 +273,19 @@
                       <div class="form-group text-center" id="input-image" style="height:200px; background-color:gray;">
                           <label for="exampleFormControlFile1 text-"><h2>Images</h2></label>
                           <input type="file" class="form-control-file  mt-4" id="File" name="files[]" multiple 
-                          accept="image/*" style="background-color:gray;"> 
+                          accept="image/*" style="background-color:gray;" > 
                           
                         </div>
                   <div class="card-body" style="position:relative; top:-10px">
                       <label for="title">title</label>
-                      <input type="text" class="form-control" id="title" name="title" placeholder="title of a book">
+                      <input type="text" class="form-control" id="title" name="title"  placeholder="title of a book" required>
                       <label for="description">description</label>
-                      <input type="text" class="form-control" id="description" name="description" placeholder="description of a book">
+                      <input type="text" class="form-control" id="description" name="description" placeholder="description of a book" required>
                   </div>
                   <ul class="list-group list-group-flush card-body">
-                      <li class="list-group-item row"><label for="isbn" class="col-md-5">ISBN</label><input type="isbn" id="text" class="control-form col-md-7" name="isbn"> </li>
+                      <li class="list-group-item row"><label for="isbn" class="col-md-5">ISBN</label><input type="number" id="text" class="control-form col-md-7" name="isbn" required> </li>
                       <li class="list-group-item row"><label for="quantity" class="col-md-5">Quantity</label><input type="number" id="quantity" class="control-form col-md-7" 
-                      name="quantity" min="1"></li>
+                      name="quantity" min="1"  required></li>
                   </ul>
                   <div class="card-body">
                       <input type="hidden" name="editModal" id="editModal" value="" />
@@ -289,22 +364,22 @@
                             <div class="form-group text-center" id="input-image" style="height:200px; background-color:gray;">
                                 <label for="exampleFormControlFile1 text-"><h2>Images</h2></label>
                                 <input type="file" class="form-control-file  mt-4" id="File" name="files[]" multiple 
-                                accept="image/*" style="background-color:gray;" > 
+                                accept="image/*" style="background-color:gray;" required> 
                                 
                               </div>
                         <div class="card-body" style="position:relative; top:-10px">
                             <label for="title">title</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="title of a book">
+                            <input type="text" class="form-control" id="title" name="title" placeholder="title of a book" required>
                             <label for="description">description</label>
-                            <input type="text" class="form-control" id="description" name="description" placeholder="description of a book">
+                            <input type="text" class="form-control" id="description" name="description" placeholder="description of a book" required>
                         </div>
                         <ul class="list-group list-group-flush card-body">
-                            <li class="list-group-item row"><label for="isbn" class="col-md-5">ISBN</label><input type="isbn" id="text" class="control-form col-md-7" name="isbn"> </li>
+                            <li class="list-group-item row"><label for="isbn" class="col-md-5">ISBN</label><input type="number" id="text" class="control-form col-md-7" name="isbn"required> </li>
                             <li class="list-group-item row"><label for="quantity" class="col-md-5">Quantity</label><input type="number" id="quantity" class="control-form col-md-7" 
-                            name="quantity" min="1" ></li>
+                            name="quantity" min="1" required></li>
                         </ul>
                         <div class="card-body">
-                            <button class="btn btn-primary" name="submit" value="UPLOAD">Add Book</button>
+                            <button class="btn btn-primary" id="submit10" name="submit" value="UPLOAD">Add Book</button>
                         </div>
                     </div>
                   </form>
@@ -364,6 +439,14 @@
     //   return false;
     // });
     
+    
+    $("#submit10").click(function(){
+        var $fileUpload = $("input[type='file']");
+        if (parseInt($fileUpload.get(0).files.length)>4){
+         alert("You can only upload a maximum of 4 files");
+        }
+    });    
+
     $(document).ready(function() {
       $('#submit-button button').on('click', function(e){
       $("#editModal").val(this.id);
