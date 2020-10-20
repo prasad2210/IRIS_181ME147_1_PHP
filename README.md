@@ -42,3 +42,27 @@ This is an a library dashboard which isdevelped to extend iris website of nitk.(
 ## Reference
   1. w3school
   2. stackoverflow
+## screenshots
+## dashboard
+![Alt text](./screenshots/1.png?raw=true "dashboard")
+## login/signup
+
+![Alt text](./screenshots/2.png?raw=true "login")
+## Addbook/edit
+
+![Alt text](./screenshots/3.png?raw=true "Addbook/edit")
+## issue_pending
+
+![Alt text](./screenshots/4.png?raw=true "issue_pending")
+## dashboard-admin
+
+![Alt text](./screenshots/5.png?raw=true "dashboard-admin")
+## myBooks
+
+![Alt text](./screenshots/6.png?raw=true "myBooks")
+## issue_requests
+
+![Alt text](./screenshots/7.png?raw=true "issue_requests")
+## transactions
+
+![Alt text](./screenshots/8.png?raw=true "transactions")
