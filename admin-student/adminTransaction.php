@@ -200,7 +200,7 @@
           <ol class="breadcrumb remalign">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="../../index.php?logout=1">Library</a></li>
-            <li class="breadcrumb-item"><a href="./student.php">student</a></li>
+            <li class="breadcrumb-item"><a href="./admin.php">admin</a></li>
             <li class="breadcrumb-item">Transactions</li>
           </ol>
         </nav>
